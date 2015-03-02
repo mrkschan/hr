@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"strconv"
 )
 
 // func nPr(n int, r int) int {
@@ -24,16 +25,28 @@ func main() {
 	var cases, size int
 	var total int64
 
-	io := bufio.NewReader(os.Stdin)
-	fmt.Fscan(io, &cases)
+	scanner := bufio.NewScanner(os.Stdin)
+	scanner.Split(bufio.ScanWords)
+
+	// io := bufio.NewReader(os.Stdin)
+	// fmt.Fscan(io, &cases)
+
+	scanner.Scan()
+	cases, _ = strconv.Atoi(scanner.Text())
 
 	for i := 0; i < cases; i++ {
-		fmt.Fscan(io, &size)
+		// fmt.Fscan(io, &size)
+		scanner.Scan()
+		size, _ = strconv.Atoi(scanner.Text())
 
 		freq := make(map[int]int64)
 		var x int
 		for j := 0; j < size; j++ {
-			fmt.Fscan(io, &x)
+			// fmt.Fscan(io, &x)
+
+			scanner.Scan()
+			x, _ = strconv.Atoi(scanner.Text())
+
 			freq[x] += 1
 		}
 
